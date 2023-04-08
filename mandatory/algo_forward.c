@@ -6,7 +6,7 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 17:06:51 by lspohle           #+#    #+#             */
-/*   Updated: 2023/04/08 17:53:00 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/04/08 20:11:16 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,9 @@ int ft_start_of_stack_a(t_list **stack_a, t_list **stack_b, t_vars *vars)
 
 void ft_algo_forward(t_list **stack_a, t_list **stack_b, t_vars *vars)
 {
-	while (vars->len_stack_a > 3 && vars->len_stack_b < 2) // check if letzten vier schon sortiert
+	if ((*stack_a)->num == 0)
+		ft_pb(stack_a, stack_b, vars);
+	while (vars->len_stack_a > 3 && vars->len_stack_b < 2) // idee: check if letzten vier schon sortiert
 		ft_pb(stack_a, stack_b, vars);
 	if (vars->len_stack_b == 2 && (*stack_b)->num < (*stack_b)->next->num)
 		ft_rb(stack_b);
@@ -101,7 +103,7 @@ void ft_algo_forward(t_list **stack_a, t_list **stack_b, t_vars *vars)
 			if (ft_second_and_last_of_stack_a(stack_a, stack_b, vars) != -1)
 			{
 				ft_find_spot_in_b(stack_a, stack_b, vars->len_stack_b);
-				ft_pb(stack_a, stack_b, vars); // es werden mehr auf jeden Fall mehr als 2 Operationen gebraucht
+				ft_pb(stack_a, stack_b, vars); // es werden mehr als 2 Operationen gebraucht
 			}
 		ft_print_node(*stack_a, *stack_b);
 	}

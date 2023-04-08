@@ -22,6 +22,9 @@ AR			= ar -rc
 
 RM			= rm -f
 
+%.o: %.c		
+				@${CC} ${CFLAGS} -c $^ -o $@
+				
 ${NAME}:	${OBJS}
 			@${AR} ${NAME} ${OBJS}
 
