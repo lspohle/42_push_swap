@@ -6,7 +6,7 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 21:59:09 by lspohle           #+#    #+#             */
-/*   Updated: 2023/04/08 17:06:49 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/04/08 17:31:30 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,8 @@ int	main(int argc, char **argv)
 	}
 	ft_order_a(&stack_a, vars);
 	ft_print_node(stack_a, stack_b);
+	ft_lstclear(&stack_a);
+	ft_lstclear(&stack_b);
+	free(vars);
 	return (0);
 }
