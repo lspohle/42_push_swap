@@ -6,7 +6,7 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 21:59:09 by lspohle           #+#    #+#             */
-/*   Updated: 2023/04/08 17:31:30 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/04/08 18:24:46 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 		ft_stack_three(&stack_a, vars);
 	while (stack_b)
 	{	
-		ft_find_spot_in_a(&stack_a, &stack_b, vars->len_stack_a);
+		ft_find_spot_in_a(&stack_a, &stack_b);
 		ft_pa(&stack_a, &stack_b, vars);
 		ft_print_node(stack_a, stack_b);
 	}

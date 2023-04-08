@@ -6,7 +6,7 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 21:59:19 by lspohle           #+#    #+#             */
-/*   Updated: 2023/04/08 17:07:48 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/04/08 18:24:31 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_vars
 
 //algo_back.c
 void	ft_stack_three(t_list **stack_a, t_vars *vars);
-void	ft_find_spot_in_a(t_list **stack_a, t_list **stack_b, int len);
+void	ft_find_spot_in_a(t_list **stack_a, t_list **stack_b);
 void	ft_order_a(t_list **stack_a, t_vars *vars);
 //algo_forward.c
 int		ft_second_and_last_of_stack_a(t_list **stack_a, t_list **stack_b, t_vars *vars);
