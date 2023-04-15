@@ -27,7 +27,7 @@ BLUE			= \033[0;34m
 MAGENTA			= \033[0;35m
 ESCAPE			= \033[0m
 
-all:			${NAME}
+all:			lib ${NAME}
 
 %.o: %.c		
 				@${CC} ${CFLAGS} -c $^ -o $@
@@ -37,10 +37,8 @@ ${NAME}:		start ${OBJS} ${LIBFT}/libft.a
 				@echo "${GREEN}******************  COMPILED  *******************${ESCAPE}"
 				@echo "${MAGENTA}*************** You got this, guys! *************${ESCAPE}"
 
-${LIBFT}/libft.a:
-				@make bonus -C ${LIBFT}		
-
-
+lib:
+				@make bonus -C ${LIBFT}
 
 start:			
 				@echo "-------------------------------------------------"

@@ -6,7 +6,7 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 21:59:09 by lspohle           #+#    #+#             */
-/*   Updated: 2023/04/15 01:47:23 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/04/15 13:03:57 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_error(void)
 {
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	return (1);
 }
 
