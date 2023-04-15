@@ -6,7 +6,7 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 21:59:19 by lspohle           #+#    #+#             */
-/*   Updated: 2023/04/15 01:47:49 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/04/15 17:48:49 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ t_bool	ft_split_input(char *string_numbers, t_list **stack_a);
 t_bool	ft_read_input(t_list **stack_a, char **argv, int i);
 // forward.c
 void	ft_sort_forward(t_list **stack_a, t_list **stack_b, t_vars *vars);
+void	ft_oder_last_three_spots(t_list **stack_a, t_vars *vars);
 // utils_forward.c
 int		ft_cnt_ops_in_a(t_list **stack_a, t_vars *vars, int num);
 int		ft_cnt_ops_in_b(t_list **stack_b, t_vars *vars, int num_a);
 void	ft_rotate_a(t_list **stack_a, t_vars *vars, int num_a);
 void	ft_rotate_b(t_list **stack_b, t_vars *vars, int num_a);
-void	ft_oder_last_three_spots(t_list **stack_a, t_vars *vars);
 
 #endif
