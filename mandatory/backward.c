@@ -6,7 +6,7 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 21:59:09 by lspohle           #+#    #+#             */
-/*   Updated: 2023/04/15 01:47:32 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/04/15 13:44:26 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void	ft_order_ascending(t_list **stack_a, t_vars *vars)
 	}
 	if (vars->len_a - cnt > cnt)
 		while (--cnt >= 0)
-			ft_rotate("ra", stack_a);
+			ft_rotate("ra", stack_a, true);
 	else
 		while (++cnt <= vars->len_a)
-			ft_reverse_rotate("rra", stack_a);
+			ft_reverse_rotate("rra", stack_a, true);
 }
 
 void	ft_sort_backward(t_list **stack_a, t_list **stack_b, t_vars *vars)
@@ -51,10 +51,10 @@ void	ft_sort_backward(t_list **stack_a, t_list **stack_b, t_vars *vars)
 		{
 			if (vars->len_a - cnt > cnt)
 				while (--cnt >= 0)
-					ft_rotate("ra", stack_a);
+					ft_rotate("ra", stack_a, true);
 			else
 				while (++cnt <= vars->len_a)
-					ft_reverse_rotate("rra", stack_a);
+					ft_reverse_rotate("rra", stack_a, true);
 			break ;
 		}
 		cnt++;

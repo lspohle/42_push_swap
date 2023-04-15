@@ -6,7 +6,7 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 21:59:19 by lspohle           #+#    #+#             */
-/*   Updated: 2023/04/15 01:47:49 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/04/15 13:50:27 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ t_bool	ft_check_occurrence(t_list *stack_a, int num);
 void	ft_swap(char *operation, t_list **stack);
 void	ft_pa(t_list **stack_a, t_list **stack_b, t_vars *vars);
 void	ft_pb(t_list **stack_a, t_list **stack_b, t_vars *vars);
-void	ft_rotate(char *operation, t_list **stack);
-void	ft_reverse_rotate(char *operation, t_list **stack);
+void	ft_rotate(char *operation, t_list **stack, t_bool print);
+void	ft_reverse_rotate(char *operation, t_list **stack, t_bool print);
+void	ft_rotate_both(t_list **stack_a, t_list **stack_b);
+void	ft_reverse_rotate_both(t_list **stack_a, t_list **stack_b);
 // input.c
 t_bool	ft_split_input(char *string_numbers, t_list **stack_a);
 t_bool	ft_read_input(t_list **stack_a, char **argv, int i);

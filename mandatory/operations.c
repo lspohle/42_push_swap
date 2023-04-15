@@ -6,7 +6,7 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:17:09 by lspohle           #+#    #+#             */
-/*   Updated: 2023/04/15 00:42:29 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/04/15 13:50:46 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_pb(t_list **stack_a, t_list **stack_b, t_vars *vars)
 	ft_printf("pb\n");
 }
 
-void	ft_rotate(char *operation, t_list **stack)
+void	ft_rotate(char *operation, t_list **stack, t_bool print)
 {
 	t_list	*first;
 	t_list	*last;
@@ -67,10 +67,11 @@ void	ft_rotate(char *operation, t_list **stack)
 	last->next = first;
 	*stack = first->next;
 	first->next = NULL;
-	ft_printf("%s\n", operation);
+	if (print == true)
+		ft_printf("%s\n", operation);
 }
 
-void	ft_reverse_rotate(char *operation, t_list **stack)
+void	ft_reverse_rotate(char *operation, t_list **stack, t_bool print)
 {
 	t_list	*first;
 	t_list	*last;
@@ -82,5 +83,20 @@ void	ft_reverse_rotate(char *operation, t_list **stack)
 	last->next = first;
 	snd_last->next = NULL;
 	*stack = last;
-	ft_printf("%s\n", operation);
+	if (print == true)
+		ft_printf("%s\n", operation);
+}
+
+void	ft_rotate_both(t_list **stack_a, t_list **stack_b)
+{
+	ft_rotate("ra", stack_a, false);
+	ft_rotate("rb", stack_b, false);
+	ft_printf("rr\n");
+}
+
+void	ft_reverse_rotate_both(t_list **stack_a, t_list **stack_b)
+{
+	ft_reverse_rotate("rra", stack_a, false);
+	ft_reverse_rotate("rrb", stack_b, false);
+	ft_printf("rrr\n");
 }

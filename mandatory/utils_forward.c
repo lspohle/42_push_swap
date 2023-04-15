@@ -6,7 +6,7 @@
 /*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 23:16:08 by lspohle           #+#    #+#             */
-/*   Updated: 2023/04/15 01:42:20 by lspohle          ###   ########.fr       */
+/*   Updated: 2023/04/15 13:46:41 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ void	ft_rotate_a(t_list **stack_a, t_vars *vars, int num_a)
 		{
 			if (vars->len_a - cnt > cnt)
 				while (--cnt >= 0)
-					ft_rotate("ra", stack_a);
+					ft_rotate("ra", stack_a, true);
 			else
 				while (++cnt <= vars->len_a)
-					ft_reverse_rotate("rra", stack_a);
+					ft_reverse_rotate("rra", stack_a, true);
 			break ;
 		}
 		cnt++;
@@ -98,22 +98,22 @@ void	ft_rotate_b(t_list **stack_b, t_vars *vars, int num_a)
 		{
 			if (vars->len_b - cnt > cnt)
 				while (--cnt >= 0)
-					ft_rotate("rb", stack_b);
+					ft_rotate("rb", stack_b, true);
 			else
 				while (++cnt <= vars->len_b)
-					ft_reverse_rotate("rrb", stack_b);
+					ft_reverse_rotate("rrb", stack_b, true);
 		}
 		if ((num_a < vars->min_b && tmp_b->num == vars->max_b)
 			|| (num_a > vars->max_b && tmp_b->num == vars->max_b))
 		{
 			if (vars->len_b - cnt > cnt)
 				while (--cnt >= 0)
-					ft_rotate("rb", stack_b);
+					ft_rotate("rb", stack_b, true);
 			else
 			{
 				cnt--;
 				while (++cnt <= vars->len_b)
-					ft_reverse_rotate("rrb", stack_b);
+					ft_reverse_rotate("rrb", stack_b, true);
 			}
 		}
 		cnt++;
@@ -133,13 +133,13 @@ void	ft_oder_last_three_spots(t_list **stack_a, t_vars *vars)
 			valid = true;
 		else if ((*stack_a)->num < (*stack_a)->next->num
 			&& (*stack_a)->next->num > (*stack_a)->next->next->num)
-			ft_reverse_rotate("rra", stack_a);
+			ft_reverse_rotate("rra", stack_a, true);
 		else if ((*stack_a)->num > (*stack_a)->next->num
 			&& (*stack_a)->num < (*stack_a)->next->next->num)
 			ft_swap("sa", stack_a);
 		else if ((*stack_a)->num > (*stack_a)->next->num
 			&& (*stack_a)->num > (*stack_a)->next->next->num)
-			ft_rotate("ra", stack_a);
+			ft_rotate("ra", stack_a, true);
 	}
 	vars->len_a = ft_lstsize(*stack_a);
 	vars->min_a = (*stack_a)->num;
