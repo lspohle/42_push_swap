@@ -32,11 +32,34 @@ t_bool	ft_split_input(char *string_numbers, t_list **stack_a)
 	return (result);
 }
 
+static t_list	*ft_get_num(t_list **stack_a, char **numbers, int i)
+{
+	long int	num;
+	t_list		*tmp;
+
+	if (ft_check_char_occurrence(numbers[i]) == false)
+		return (NULL);
+	num = ft_atol(numbers[i]);
+	if ((num == 0 && numbers[i][0] != '0')
+		|| (num < INT_MIN || num > INT_MAX)
+		|| ft_check_double_occurrence(*stack_a, (int) num) == false)
+		return (NULL);
+	tmp = ft_lstnew((int)num);
+	if (!tmp)
+	{
+		ft_lstclear(stack_a);
+		return (NULL);
+	}
+	return (tmp);
+}
+
 t_bool	ft_read_input(t_list **stack_a, char **numbers, int i)
 {
 	long int	num;
 	t_list		*tmp;
 
+	if (ft_check_char_occurrence(numbers[i]) == false)
+		return (false);
 	num = ft_atol(numbers[i]);
 	if ((num == 0 && numbers[i][0] != '0') || (num < INT_MIN || num > INT_MAX))
 		return (false);
@@ -45,13 +68,8 @@ t_bool	ft_read_input(t_list **stack_a, char **numbers, int i)
 		return (false);
 	while (numbers[++i])
 	{
-		num = ft_atol(numbers[i]);
-		if ((num == 0 && numbers[i][0] != '0')
-			|| (num < INT_MIN || num > INT_MAX)
-			|| ft_check_occurrence(*stack_a, (int) num) == false)
-			return (false);
-		tmp = ft_lstnew((int)num);
-		if (!tmp)
+		tmp = ft_get_num(stack_a, numbers, i);
+		if (tmp == NULL)
 		{
 			ft_lstclear(stack_a);
 			return (false);

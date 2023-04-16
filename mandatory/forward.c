@@ -19,15 +19,15 @@ static t_bool	ft_fst_spot(t_list **stack_a, t_list **stack_b, t_vars *vars)
 	spot = (*stack_a)->num;
 	if ((spot > vars->max_b && (*stack_b)->num == vars->max_b)
 		|| (spot > (*stack_b)->num && spot < ft_lstlast(*stack_b)->num))
-		ft_pb(stack_a, stack_b, vars);
+		ft_push_b(stack_a, stack_b, vars);
 	else if (spot < vars->min_b && (*stack_b)->num == vars->max_b)
 	{
-		ft_pb(stack_a, stack_b, vars);
+		ft_push_b(stack_a, stack_b, vars);
 		ft_rotate("rb", stack_b);
 	}
 	else if (spot < (*stack_b)->num && spot > (*stack_b)->next->num)
 	{
-		ft_pb(stack_a, stack_b, vars);
+		ft_push_b(stack_a, stack_b, vars);
 		ft_swap("sb", stack_b);
 	}
 	else
@@ -89,7 +89,7 @@ static void	ft_diff_spot(t_list **stack_a, t_list **stack_b, t_vars *vars)
 void	ft_sort_forward(t_list **stack_a, t_list **stack_b, t_vars *vars)
 {
 	while (vars->len_a > 3 && vars->len_b < 2)
-		ft_pb(stack_a, stack_b, vars);
+		ft_push_b(stack_a, stack_b, vars);
 	if (vars->len_b == 2 && (*stack_b)->num < (*stack_b)->next->num)
 		ft_rotate("rb", stack_b);
 	while (vars->len_a > 3)
@@ -99,8 +99,12 @@ void	ft_sort_forward(t_list **stack_a, t_list **stack_b, t_vars *vars)
 			if (ft_snd_spot(stack_a, stack_b, vars) == false)
 				if (ft_last_spot(stack_a, stack_b, vars) == false)
 					ft_diff_spot(stack_a, stack_b, vars);
-			ft_pb(stack_a, stack_b, vars);
+			ft_push_b(stack_a, stack_b, vars);
 		}
 	}
-	ft_oder_last_three_spots(stack_a, vars);
+	if (vars->len_a == 2)
+		if ((*stack_a)->num > (*stack_a)->next->num)
+			ft_swap("sa", stack_a);
+	if (vars->len_a == 3)
+		ft_oder_last_three_spots(stack_a, vars);
 }

@@ -25,7 +25,7 @@ void	ft_swap(char *operation, t_list **stack)
 	ft_printf("%s\n", operation);
 }
 
-void	ft_pa(t_list **stack_a, t_list **stack_b, t_vars *vars)
+void	ft_push_a(t_list **stack_a, t_list **stack_b, t_vars *vars)
 {
 	t_list	*first;
 
@@ -41,7 +41,7 @@ void	ft_pa(t_list **stack_a, t_list **stack_b, t_vars *vars)
 	ft_printf("pa\n");
 }
 
-void	ft_pb(t_list **stack_a, t_list **stack_b, t_vars *vars)
+void	ft_push_b(t_list **stack_a, t_list **stack_b, t_vars *vars)
 {
 	t_list	*first;
 

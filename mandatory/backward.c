@@ -60,7 +60,7 @@ void	ft_sort_backward(t_list **stack_a, t_list **stack_b, t_vars *vars)
 		cnt++;
 		tmp_a = tmp_a->next;
 	}
-	ft_pa(stack_a, stack_b, vars);
+	ft_push_a(stack_a, stack_b, vars);
 }
 
 void	ft_oder_last_three_spots(t_list **stack_a, t_vars *vars)

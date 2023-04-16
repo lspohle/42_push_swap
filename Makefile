@@ -35,7 +35,6 @@ all:			${NAME}
 ${NAME}:		start ${OBJS} ${LIBFT}/libft.a
 				@${CC} ${CFLAGS} ${OBJS} -L ${LIBFT} -lft -o ${NAME}
 				@echo "${GREEN}******************  COMPILED  *******************${ESCAPE}"
-				@echo "${MAGENTA}*************** You got this, guys! *************${ESCAPE}"
 
 ${LIBFT}/libft.a:
 				@make bonus -C ${LIBFT}		
