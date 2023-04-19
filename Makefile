@@ -16,7 +16,7 @@ OBJS			= ${SRCS:.c=.o}
 
 CC				= cc
 
-CFLAGS			= -Wall -Wextra -Werror -g
+CFLAGS			= -Wall -Wextra -Werror
 
 RM				= rm -f
 
@@ -32,19 +32,20 @@ all:			${NAME}
 %.o: %.c		
 				@${CC} ${CFLAGS} -c $^ -o $@
 
-${NAME}:		start ${OBJS} ${LIBFT}/libft.a
+${NAME}:		norm ${OBJS} ${LIBFT}/libft.a
 				@${CC} ${CFLAGS} ${OBJS} -L ${LIBFT} -lft -o ${NAME}
 				@echo "${GREEN}******************  COMPILED  *******************${ESCAPE}"
 
 ${LIBFT}/libft.a:
 				@make bonus -C ${LIBFT}		
 
-
-
-start:			
+norm:			
 				@echo "-------------------------------------------------"
 				@echo "${MAGENTA}******************  MANDATORY  ******************${ESCAPE}"
 				@echo "-------------------------------------------------"
+				@echo "${YELLOW}*****************  NORMINETTE  ******************${ESCAPE}"
+				@cd ${LIBFT} && norminette
+				@cd mandatory && norminette
 				@echo "${YELLOW}******************  COMPILING  ******************${ESCAPE}"
 
 clean:	
@@ -58,4 +59,4 @@ fclean:			clean
 
 re:				fclean all
 
-.PHONY:			all start clean fclean re
+.PHONY:			all norm clean fclean re
